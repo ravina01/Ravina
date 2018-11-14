@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html style="margin: 0 auto">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <form id="reg" name="reg" method="get" action="thankyou.html">
+            Preffered Programming Language:<br>
+            <select id="country" name="country" >
+
+
+            </select>
+            <input type="submit" id="submit" value="choice" onclick="getName">
+
+            <script>
+
+                var country1 = ["Java script", "HTML", "CSS"];
+                var isvalid = true;
+
+                function getName() {
+                    for (var i = 0; i < options.length; i++) {
+                        var opt = country[i];
+                        var el = document.createElement("country");
+                        document.getElementById('country').value;
+                    }
+                    if (isvalid) {
+                        localStorage.setItem('country name', country1);
+                        document.getElementById('reg').submit();//storage homework
+                    }
+                }
+
+
+            </script>
+        </form>
+    </body>
+</html>
