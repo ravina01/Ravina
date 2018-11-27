@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Registration form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='form.css' rel='stylesheet'>
+        <meta name="discription" content="Internation student accomodation that they can search for their accomodation in CANADA using 
+              different websight to have desire accomodation">
+        <meta name="keywords" content="international student, accomodation, student home, student house, canada, apartment for rent,
+              on campus house, roommates, cheap, affordable">
+    </head>
+
+    <body>
+
+        <header>
+            <h1> Personal Information </h1>
+        </header>
+
+        <main>
+            <form action="phase3/index.html" method="post" >
+
+                <fieldset id='align'>
+
+                    <label for="fname"> First Name:</label><input type="text" id="fname" name="fname" placeholder="John"/><span id="fname1" >*</span><br>
+                    <label for="lname"> Last Name:</label><input type="text" id="lname" name="lname" placeholder="Smith"/><span id="lname1" >*</span><br>
+                    <label for="email"> Email:</label><input type="email" id="email" name="email"/><span id="email1">*</span><br>
+                    <label for="phone"> Phone Number :</label> <input type="tel" id="phone" name="phone" placeholder="111-111-1111"><span id="phone1" >*</span><br>
+                    <label for="dob"> Date of Birth :</label><input type="text" id="dob" name="dob" placeholder="DD/MM/YYYY"/><span id="dob1">*</span><br>
+                    <label for="add"> Address:</label><input type="text" id="add" name="add" placeholder="205 Humber College Blvd, Etobicoke, ON M9W 5L7"/><span id="add1"></span><br>
+                    <label for="password"> Password:</label><input type="password" id="password" name="password" title="password" /><span id="password1">*</span><br>
+                    <label for="password"> Password:</label><input type="password" id="smpassword" name="smpassword" title="password" /><span id="smpassword1">*</span><br>
+
+                </fieldset>
+
+                <h2>Other information </h2>
+
+                <fieldset>
+
+                    <div>
+                        What do you consider your self ? <br>
+                        <input type="radio" name="contact" id="engine" value="engine"  /> <label for="engine"> Male</label> <br>
+                        <input type="radio" name="contact" id="WofMouth" value="WofMouth" /> <label for="WofMouth"> feMale</label><br>
+                        <input type="radio" name="contact" id="other" value="other" checked/> <label for="other"> Not defined</label>
+                    </div>
+
+                    <div>
+                        Please select your country.
+                        <select id="country" name="country">
+                            <option> South American Countries </option>
+                            <option> European countries </option>
+                            <option> Asian country </option>
+                            <option> African countries </option>
+                            <option selected> North American countries </option>
+                            <option> Rassian couuties </option>
+                            <option> Antarktican countries </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        Contact via:
+                        <select id="contact" name="contact">
+                            <option selected> email </option>
+                            <option> phone </option>
+                            <option > courier </option>
+                            <option> mail </option>
+                        </select>
+                    </div>
+
+                    Comments:<br/>
+                    <textarea id="textarea" name="textarea" rows="5" cols="45" ></textarea>
+
+                    <div>
+                        Would you like to receive an email for the important information ?<br>
+                        <input type="checkbox" name="yes" id="yes" value="yes" > <label for="yes"> YES, I'd like to receive information 
+                            about new products and special offers</label>
+                    </div>
+                    <div>
+                        Do you agree to our terms and condition ?<br>
+                        <input type="checkbox" name="term" id="term" > <label for="yes"> YES, I'd like to receive information 
+                            about new products and special offers</label><span id="term1">*</span>
+                    </div>
+
+                </fieldset>
+                
+                <input type="submit" value="submit" id="submit" name="submit" onclick="validation()"/>
+
+            </form>
+
+        </main>
+
+        <script>
+
+            function validation() {
+                var fname = document.getElementById('fname').value;
+                var lname = document.getElementById('lname').value;
+                var email = document.getElementById('email').value;
+                var phone = document.getElementById('phone').value;
+                var dob = document.getElementById('dob').value;
+                var password = document.getElementById('password').value;
+                var smpassword = document.getElementById('smpassword').value;
+                var term = document.getElementById('term').checked;
+
+                if ((fname.length < 2) || (fname.length > 20)) {
+                    document.getElementById('fname1').innerHTML = '*** the name you entered has to have lenth of 2 to 20..';
+                    return false;
+                } else {
+                    document.getElementById('fname1').innerHTML = '';
+                }
+                if (!isNaN(fname)) {
+                    document.getElementById('fname1').innerHTML = '*** The First Name Must Not have Numeric Data Only..';
+                    return false;
+                } else {
+                    document.getElementById('fname1').innerHTML = '';
+                }
+                if ((lname.length < 2) || (lname.length > 20)) {
+                    document.getElementById('lname1').innerHTML = '*** The name you entered has to have lenth of 2 to 20..';
+                    return false;
+                } else {
+                    document.getElementById('fname1').innerHTML = '';
+                }
+                if (!isNaN(lname)) {
+                    document.getElementById('lname1').innerHTML = '*** The Larst Name Must Not have Numeric Data Only..';
+                    return false;
+                } else {
+                    document.getElementById('fname1').innerHTML = '';
+                }
+                if (email.indexOf('@') <= 0) {
+                    document.getElementById('email1').innerHTML = '*** Invalid EMAIL.. Ex.-abd@abc.com';
+                    return false;
+                } else {
+                    document.getElementById('email1').innerHTML = '';
+                }
+                if ((email.charAt(email.length - 4) != '.') && (email.charAt(email.length - 3) != '.')) {
+                    document.getElementById('email1').innerHTML = '*** Invalid EMAIL.. Ex.-abd@abc.com';
+                    return false;
+                } else {
+                    document.getElementById('email1').innerHTML = '';
+                }
+                if (isNaN(phone)) {
+                    document.getElementById('phone1').innerHTML = '*** The Phone# Must have Numeric Data Only..';
+                    return false;
+                } else {
+                    document.getElementById('phone1').innerHTML = '';
+                }
+                if (phone.length != 10) {
+                    document.getElementById('phone1').innerHTML = '*** The Number you entered is not Valid..';
+                    return false;
+                } else {
+                    document.getElementById('phone1').innerHTML = '';
+                }
+                if (dob.length != 10) {
+                    document.getElementById('dob1').innerHTML = '*** The Date of birth is Required..';
+                    return false;
+                } else {
+                    document.getElementById('dob1').innerHTML = '';
+                }
+                if ((password.length < 2) || (password.length > 12)) {
+                    document.getElementById('password1').innerHTML = '*** The length of your password must be between 2 to 12..';
+                    return false;
+                } else {
+                    document.getElementById('password1').innerHTML = '';
+                }
+                if ((smpassword.length < 2) || (smpassword.length > 12)) {
+                    document.getElementById('smpassword1').innerHTML = '*** The length of your password must be between 2 to 12..';
+                    return false;
+                } else {
+                    document.getElementById('password1').innerHTML = '';
+                }
+                if (smpassword != password) {
+                    document.getElementById('smpassword1').innerHTML = '*** The password MUST match...';
+                    return false;
+                } else {
+                    document.getElementById('smpassword1').innerHTML = '';
+                }
+                if (!term) {
+                    document.getElementById('term1').innerHTML = '*** ACCEPT TERM & CONDITION...';
+                    return false;
+                } else {
+                    document.getElementById('term1').innerHTML = '';
+                }
+                                    
+            }
+
+
+        </script>
+    </body>
+</html>
